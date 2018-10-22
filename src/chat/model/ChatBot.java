@@ -1,4 +1,4 @@
-package model;
+package chat.model;
 
 import java.util.ArrayList;
 
@@ -6,6 +6,7 @@ public class ChatBot
 {
 	private String userName, botName, joke;
 	private ArrayList<String> responseList;
+	private ArrayList<String> spookyList;
 	
 	public ChatBot()
 	{
@@ -14,6 +15,7 @@ public class ChatBot
 		this.joke = "I'm so funny";
 		
 		this.responseList = new ArrayList<String>();
+		this.spookyList = new ArrayList<String>();
 		
 		buildTheLists();
 	}
@@ -25,6 +27,19 @@ public class ChatBot
 		responseList.add("huh?");
 		responseList.add("");
 		responseList.add("That is unethical.");
+		responseList.add("God you smell bad!");
+		
+		spookyList.add("spoop");
+		spookyList.add("big spoop");
+	}
+	
+	public String processText(String userText)
+	{
+		String answer = "";
+		
+		answer += "You said: " + userText;
+		
+		return answer;
 	}
 	
 	public String getJoke()
