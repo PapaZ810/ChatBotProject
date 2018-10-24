@@ -7,10 +7,11 @@ public class Chatbot
 	private String currentUser, botName, joke, content;
 	private ArrayList<String> responseList;
 	private ArrayList<String> spookyList;
+	private boolean legit;
 	
 	public Chatbot()
 	{
-		this.currentUser = "unnamed user";
+		this.currentUser = "stupid user that didnt put in a name for him or her self";
 		this.botName = "c-bot";
 		this.joke = "I'm so funny";
 		
@@ -18,6 +19,26 @@ public class Chatbot
 		this.spookyList = new ArrayList<String>();
 		
 		buildTheLists();
+	}
+	
+	public boolean legitimacyChecker(String input)
+	{
+		legit = true;
+		
+		if (input == null)
+		{
+			legit = false;
+		}
+		else if (input.length() < 2)
+		{
+			legit = false;
+		}
+		else if (input.contains("sdf") || input.contains("jkl") || input.contains("cvb"))
+		{
+			legit = false;
+		}
+		
+		return legit;
 	}
 	
 	private void buildTheLists()
@@ -64,32 +85,30 @@ public class Chatbot
 	{
 		return content;
 	}
-	
 	public String getJoke()
 	{
 		return joke;
 	}
-	
 	public String getCurrentUser()
 	{
 		return currentUser;
 	}
-	
 	public String getBotName()
 	{
 		return botName;
 	}
-	
+	public void setContent()
+	{
+		this.content = content;
+	}
 	public void setCurrentUser()
 	{
 		this.currentUser = currentUser;
 	}
-	
 	public void setBotName()
 	{
 		this.botName = botName;
 	}
-	
 	public void setJoke()
 	{
 		this.joke = joke;
