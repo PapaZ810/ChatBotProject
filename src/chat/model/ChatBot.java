@@ -7,13 +7,13 @@ public class Chatbot
 	private String currentUser, botName, joke, content;
 	private ArrayList<String> responseList;
 	private ArrayList<String> spookyList;
-	private boolean legit;
 	
 	public Chatbot()
 	{
 		this.currentUser = "stupid user that didnt put in a name for him or her self";
 		this.botName = "c-bot";
 		this.joke = "I'm so funny";
+		this.content = "sample content";
 		
 		this.responseList = new ArrayList<String>();
 		this.spookyList = new ArrayList<String>();
@@ -21,9 +21,37 @@ public class Chatbot
 		buildTheLists();
 	}
 	
+	public boolean contentChecker(String input)
+	{
+		boolean legit = false;
+		
+		
+		
+		return legit;
+	}
+	
+	public boolean spookyChecker(String input)
+	{
+		boolean legit = false;
+		
+		if(input.contains("Halloween"))
+		{
+			legit = true;
+		}
+		else if (input.contains("Easter"))
+		{
+			legit = false;
+		}
+		else
+		{
+			legit = true;
+		}
+		return legit;
+	}
+	
 	public boolean legitimacyChecker(String input)
 	{
-		legit = true;
+		boolean legit = true;
 		
 		if (input == null)
 		{
@@ -80,7 +108,14 @@ public class Chatbot
 		
 		return answer;
 	}
-	
+	public ArrayList<String> getResponseList()
+	{
+		return responseList;
+	}
+	public ArrayList<String> getSpookyList()
+	{
+		return spookyList;
+	}
 	public String getContent()
 	{
 		return content;
