@@ -21,6 +21,19 @@ public class Chatbot
 		buildTheLists();
 	}
 	
+	public Chatbot(String botName, String currentUser, String joke, String content)
+	{
+		this.currentUser = currentUser;
+		this.botName = botName;
+		this.joke = joke;
+		this.content = content;
+	}
+	
+	public Chatbot(String string)
+	{
+		content = "sample content";
+	}
+	
 	public boolean contentChecker(String input)
 	{
 		boolean legit = false;
@@ -38,15 +51,19 @@ public class Chatbot
 		{
 			legit = true;
 		}
-		else if (input.contains("Easter"))
+		
+		else
 		{
 			legit = false;
 		}
-		else
+		for(String spookyString: spookyList)
 		{
-			legit = true;
-		}
-		return legit;
+			if(input.contains(spookyString))
+			{
+				legit = true;
+			}	
+		}	
+	return legit;
 	}
 	
 	public boolean legitimacyChecker(String input)
@@ -104,7 +121,7 @@ public class Chatbot
 	{
 		String answer = "";
 		
-		answer += "You said: " + userText;
+		answer += "You said: " + userText + ". Chatbot says: " + responseList;
 		
 		return answer;
 	}
