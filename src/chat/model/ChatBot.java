@@ -38,7 +38,26 @@ public class Chatbot
 	{
 		boolean legit = false;
 		
-		
+		if(input.contains(content))
+		{
+			legit = true;
+		}
+		else if(input.contains("text" + content + "text"))
+		{
+			legit = false;
+		}
+		else if(input.contains(content + "text"))
+		{
+			legit = false;
+		}
+		else if(input.contains("text" + content))
+		{
+			legit = false;
+		}
+		else
+		{
+			legit = false;
+		}
 		
 		return legit;
 	}
