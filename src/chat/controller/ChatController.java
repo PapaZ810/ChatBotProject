@@ -15,21 +15,26 @@ public class ChatController
 
 	public String interactWithChatbot(String userInput)
 	{
-		userInput = "";
+		String userI = "";
 		
-		userInput = JOptionPane.showInputDialog(null, "Hyello, how is do?");
-		userInput = simpleBot.processText(userInput);
+		if(userInput == null)
+		{
+			userI += "You supplied null";
+		}
+		else
+		{
+			userI = JOptionPane.showInputDialog(null, "Hyello, how is do?");
+			userI = simpleBot.processText(userInput);
+		}
 		
 		//int yesNo = JOptionPane.showConfirmDialog(null, "Are you sure?", "STOP, YOU HAVE VIOLATED THE LAW. PAY A FINE OR FACE THE CONSEQUENCES!", yesNo);
 		//JOptionPane.YES_NO_OPTION(null, );
 		
-		
-		return userInput;
+		return userI;
 	}
 	
 	public String useChatbotCheckers(String input)
 	{
-		
 		
 		return input;
 	}

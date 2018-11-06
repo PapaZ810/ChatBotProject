@@ -38,9 +38,9 @@ public class Chatbot
 	{
 		boolean legit = false;
 		
-		if(input.contains(content))
+		if(input.contains("text" + content))
 		{
-			legit = true;
+			legit = false;
 		}
 		else if(input.contains("text" + content + "text"))
 		{
@@ -50,13 +50,9 @@ public class Chatbot
 		{
 			legit = false;
 		}
-		else if(input.contains("text" + content))
+		else if(input.contains(content))
 		{
-			legit = false;
-		}
-		else
-		{
-			legit = false;
+			legit = true;
 		}
 		
 		return legit;
@@ -69,8 +65,7 @@ public class Chatbot
 		if(input.contains("Halloween"))
 		{
 			legit = true;
-		}
-		
+		}		
 		else
 		{
 			legit = false;
@@ -141,6 +136,11 @@ public class Chatbot
 		String answer = "";
 		
 		answer += "You said: " + userText + ". Chatbot says: " + responseList;
+		
+		if(userText != null && userText.contains(content))
+		{
+			answer = answer + " You said the special words";
+		}
 		
 		return answer;
 	}
