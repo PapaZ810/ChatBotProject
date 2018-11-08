@@ -133,9 +133,11 @@ public class Chatbot
 	
 	public String processText(String userText)
 	{
+		int randomIndex = (int)(Math.random() * responseList.size());
+		
 		String answer = "";
 		
-		answer += "You said: " + userText + ". Chatbot says: " + responseList;
+		answer += "You said: " + userText + ". Chatbot says: " + responseList.get(randomIndex);
 		
 		if(userText != null && userText.contains(content))
 		{
@@ -168,7 +170,7 @@ public class Chatbot
 	{
 		return botName;
 	}
-	public void setContent()
+	/*public void setContent()
 	{
 		this.content = content;
 	}
@@ -183,5 +185,5 @@ public class Chatbot
 	public void setJoke()
 	{
 		this.joke = joke;
-	}
+	}*/
 }
