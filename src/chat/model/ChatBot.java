@@ -116,7 +116,7 @@ public class Chatbot
 		responseList.add("log out next time");
 		responseList.add("please exit the session by typing 'quit' in the box");
 		responseList.add("I do not like you");
-		responseList.add("");
+		responseList.add("doge");
 		responseList.add("I enjoy the summer");
 		responseList.add("how are you?");
 		
