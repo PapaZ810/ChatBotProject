@@ -7,10 +7,12 @@ import chat.model.Chatbot;
 public class ChatController
 {
 	private Chatbot simpleBot;
+	private ChatFrame appFrame;
 	
 	public ChatController()
 	{
 		simpleBot = new Chatbot();
+		appFrame = new ChatFrame(this);
 	}
 
 	public String interactWithChatbot(String userInput)
