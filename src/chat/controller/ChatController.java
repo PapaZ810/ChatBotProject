@@ -1,5 +1,6 @@
 package chat.controller;
 
+import chat.view.ChatFrame;
 import javax.swing.JOptionPane;
 import chat.model.Chatbot;
 //import java.util.ArrayList;

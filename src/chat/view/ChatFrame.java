@@ -1,5 +1,6 @@
 package chat.view;
 
+import chat.view.ChatPanel;
 import javax.swing.JFrame;
 import chat.controller.ChatController;
 
@@ -14,5 +15,16 @@ public class ChatFrame extends JFrame
 		
 		this.appController = appController;
 		this.appPanel = new ChatPanel(appController);
+		
+		setupFrame();
+	}
+	
+	private void setupFrame()
+	{
+		this.setContentPane(appPanel);
+		this.setTitle("Chat GUI");
+		this.setSize(500, 360);
+		this.setResizable(true);
+		this.setVisible(true);
 	}
 }
