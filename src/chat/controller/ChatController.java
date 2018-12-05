@@ -16,11 +16,13 @@ public class ChatController
 		appFrame = new ChatFrame(this);
 	}
 
-	public String interactWithChatbot(String userInput)
+	public String interactWithChatbot(String text)
 	{
 		String userO = "";
+		userO += simpleBot.processText(text);
 		
-		if(userInput == null)
+		
+		/*if(userInput == null)
 		{
 			userO += "You supplied null";
 		}
@@ -28,7 +30,7 @@ public class ChatController
 		{
 			userO = JOptionPane.showInputDialog(null, "Hyello, how is do?");
 			userO = simpleBot.processText(userInput);
-		}
+		}*/
 		
 		//int yesNo = JOptionPane.showConfirmDialog(null, "Are you sure?", "STOP, YOU HAVE VIOLATED THE LAW. PAY A FINE OR FACE THE CONSEQUENCES!", yesNo);
 		//JOptionPane.YES_NO_OPTION(null, );
@@ -55,11 +57,11 @@ public class ChatController
 	
 	public void start()
 	{
-		String userInput = "";
+		/*String userInput = "";
 		
 		while(!userInput.equalsIgnoreCase("quit"))
 		{
 			userInput = interactWithChatbot(userInput);
-		}	
+		}	*/
 	}
 }

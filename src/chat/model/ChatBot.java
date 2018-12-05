@@ -137,13 +137,19 @@ public class Chatbot
 		
 		String answer = "";
 		
-		answer += "You said: " + userText + ". Chatbot says: " + responseList.get(randomIndex);
-		
-		if(userText != null && userText.contains(content))
+		if(!legitimacyChecker(userText))
 		{
-			answer = answer + " You said the special words";
+			answer += "You really should not send null.\n";
 		}
-		
+		else
+		{
+			answer += "You said: " + userText +  "\n";
+			if (contentChecker(userText))
+			{
+				answer += " You said the special words\n";
+			}
+			answer +="Chatbot says: " + responseList.get(randomIndex) + "\n";
+		}
 		return answer;
 	}
 	public ArrayList<String> getResponseList()
