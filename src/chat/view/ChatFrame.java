@@ -9,12 +9,12 @@ public class ChatFrame extends JFrame
 	private ChatController appController;
 	private ChatPanel appPanel;
 	
-	public ChatFrame(ChatController appController)
+	public ChatFrame(ChatController app)
 	{
 		super();
 		
-		this.appController = appController;
-		this.appPanel = new ChatPanel(appController);
+		this.appController = app;
+		this.appPanel = new ChatPanel(app);
 		
 		setupFrame();
 	}
@@ -22,9 +22,9 @@ public class ChatFrame extends JFrame
 	private void setupFrame()
 	{
 		this.setContentPane(appPanel);
-		this.setTitle("Chat GUI");
-		this.setSize(500, 360);
-		this.setResizable(true);
+		this.setTitle("ChatBot GUI");
+		this.setSize(800, 600);
+		this.setResizable(false);
 		this.setVisible(true);
 	}
 }
