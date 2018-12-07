@@ -7,8 +7,8 @@ import chat.model.Chatbot;
 
 public class ChatController
 {
-	private Chatbot simpleBot;
 	private ChatFrame appFrame;
+	private Chatbot simpleBot;
 	
 	public ChatController()
 	{
