@@ -112,7 +112,7 @@ public class Chatbot
 		responseList.add("Do you have a PC?");
 		responseList.add("MineCraft");
 		responseList.add("Ruski");
-		responseList.add("add more codes next time");
+		responseList.add("add more code next time");
 		responseList.add("log out next time");
 		responseList.add("please exit the session by typing 'quit' in the box");
 		responseList.add("I do not like you");
