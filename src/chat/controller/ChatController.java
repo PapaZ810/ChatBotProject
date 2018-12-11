@@ -64,4 +64,19 @@ public class ChatController
 			userInput = interactWithChatbot(userInput);
 		}	*/
 	}
+	
+	private void close()
+	{
+		System.exit(0);
+	}
+	
+	public void handleErrors(Exception error)
+	{
+		JOptionPane.showMessageDialog(appFrame, error.getMessage());
+	}
+	public ChatFrame getAppFrame()
+	{
+		return appFrame;
+	}
+	
 }
