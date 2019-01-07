@@ -36,8 +36,6 @@ public class ChatPanel extends JPanel
 		chatArea = new JTextArea("chat Area", 20, 50);
 		chatPane = new JScrollPane();
 		
-		
-		
 		setupScrollPane();
 		setupPanel();
 		setupLayout();
