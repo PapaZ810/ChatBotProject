@@ -65,10 +65,6 @@ public class Chatbot
 		if(input.contains("Halloween"))
 		{
 			legit = true;
-		}		
-		else
-		{
-			legit = false;
 		}
 		for(String spookyString: spookyList)
 		{
