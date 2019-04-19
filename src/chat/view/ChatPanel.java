@@ -8,6 +8,7 @@ import chat.controller.IOController;
 
 public class ChatPanel extends JPanel
 {
+	private static final long serialVersionUID = 1L;
 	private ChatController appController;
 	private JButton chatButton;
 	private JButton checkerButton;
@@ -56,7 +57,7 @@ public class ChatPanel extends JPanel
 	private void setupPanel()
 	{
 		this.setLayout(appLayout_1);
-		this.setPreferredSize(new Dimension(800, 600));
+		this.setPreferredSize(new Dimension(1024, 768));
 		this.setBackground(new Color(0, 128, 128));
 		this.add(chatPane);
 		this.add(chatButton);
