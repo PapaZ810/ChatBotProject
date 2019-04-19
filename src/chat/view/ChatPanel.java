@@ -9,34 +9,57 @@ import chat.controller.IOController;
 public class ChatPanel extends JPanel
 {
 	private static final long serialVersionUID = 1L;
+	
 	private ChatController appController;
 	private JButton chatButton;
 	private JButton checkerButton;
 	private JButton loadButton;
 	private JButton saveButton;
-	private JButton resetButton;
+	private JButton tweetButton;
+	private JButton searchTwitterButton;
+	
+	private ImageIcon saveIcon;
+	private ImageIcon loadIcon;
+	private ImageIcon chatIcon;
+	private ImageIcon checkerIcon;
+	private ImageIcon tweetIcon;
+	private ImageIcon searchIcon;
+	
 	private SpringLayout appLayout_1;
 	private JTextField chatField;
 	private JTextArea chatArea;
+	
 	private JScrollPane chatPane;
+	private JPanel buttonPanel;
 	
 	public ChatPanel(ChatController app)
 	{
 		super();
 		
 		this.appController = app;
-		
-		resetButton = new JButton("Reset");
-		chatButton = new JButton("Chat");
-		checkerButton = new JButton("Check");
-		loadButton = new JButton("Load");
-		saveButton = new JButton("Save");
 		appLayout_1 = new SpringLayout();
 		
-		chatField = new JTextField("Talk to Bot here", 50);
-		chatArea = new JTextArea("chat Area", 20, 50);
-		chatPane = new JScrollPane();
+		saveIcon = new ImageIcon(getClass().getResource("/chat/view/images/save.png"));
+		loadIcon = new ImageIcon(getClass().getResource("/chat/view/images/load.png"));
+		chatIcon = new ImageIcon(getClass().getResource("/chat/view/images/chat.png"));
+		checkerIcon = new ImageIcon(getClass().getResource("/chat/view/images/check.png"));
+		tweetIcon = new ImageIcon(getClass().getResource("/chat/view/images/tweet.png"));
+		searchIcon = new ImageIcon(getClass().getResource("/chat/view/images/search.png"));
 		
+		chatButton = new JButton("Chat", chatIcon);
+		checkerButton = new JButton("Check", checkerIcon);
+		loadButton = new JButton("Load", loadIcon);
+		saveButton = new JButton("Save", saveIcon);
+		tweetButton = new JButton("Send Tweet", tweetIcon);
+		searchTwitterButton = new JButton("Search Twitter", searchIcon);
+		
+		chatField = new JTextField("Talk to Bot here", 50);
+		chatArea = new JTextArea("Chat Area", 20, 50);
+		
+		chatPane = new JScrollPane();
+		buttonPanel = new JPanel(new GridLayout(1, 0));
+		
+		setupButtonPanel();
 		setupScrollPane();
 		setupPanel();
 		setupLayout();
@@ -58,14 +81,22 @@ public class ChatPanel extends JPanel
 	{
 		this.setLayout(appLayout_1);
 		this.setPreferredSize(new Dimension(1024, 768));
-		this.setBackground(new Color(0, 128, 128));
+		this.setBackground(new Color(0, 191, 255));
+		buttonPanel.setPreferredSize(new Dimension(900, 150));
+		buttonPanel.setBackground(new Color(0, 191, 255));
+		this.add(buttonPanel);
 		this.add(chatPane);
-		this.add(chatButton);
-		this.add(resetButton);
-		this.add(saveButton);
-		this.add(loadButton);
-		this.add(checkerButton);
 		this.add(chatField);
+	}
+	
+	private void setupButtonPanel()
+	{
+		buttonPanel.add(saveButton);
+		buttonPanel.add(loadButton);
+		buttonPanel.add(checkerButton);
+		buttonPanel.add(chatButton);
+		buttonPanel.add(tweetButton);
+		buttonPanel.add(searchTwitterButton);
 	}
 	
 	private String getPath(String choice)
@@ -95,42 +126,19 @@ public class ChatPanel extends JPanel
 	
 	private void setupLayout()
 	{
-		appLayout_1.putConstraint(SpringLayout.NORTH, resetButton, 10, SpringLayout.NORTH, this);
-		appLayout_1.putConstraint(SpringLayout.WEST, resetButton, 10, SpringLayout.WEST, this);
-		appLayout_1.putConstraint(SpringLayout.WEST, loadButton, 82, SpringLayout.EAST, checkerButton);
-		appLayout_1.putConstraint(SpringLayout.EAST, loadButton, -420, SpringLayout.EAST, this);
-		appLayout_1.putConstraint(SpringLayout.NORTH, chatButton, 38, SpringLayout.SOUTH, chatField);
-		appLayout_1.putConstraint(SpringLayout.NORTH, saveButton, 38, SpringLayout.SOUTH, chatField);
-		appLayout_1.putConstraint(SpringLayout.NORTH, loadButton, 38, SpringLayout.SOUTH, chatField);
-		appLayout_1.putConstraint(SpringLayout.NORTH, checkerButton, 38, SpringLayout.SOUTH, chatField);
-		appLayout_1.putConstraint(SpringLayout.SOUTH, checkerButton, 109, SpringLayout.SOUTH, chatField);	
-		appLayout_1.putConstraint(SpringLayout.WEST, chatButton, 82, SpringLayout.EAST, saveButton);
-		appLayout_1.putConstraint(SpringLayout.EAST, chatButton, -85, SpringLayout.EAST, this);
-		appLayout_1.putConstraint(SpringLayout.WEST, saveButton, 82, SpringLayout.EAST, loadButton);
-		appLayout_1.putConstraint(SpringLayout.EAST, saveButton, -265, SpringLayout.EAST, this);
-		appLayout_1.putConstraint(SpringLayout.SOUTH, chatButton, -61, SpringLayout.SOUTH, this);
-		appLayout_1.putConstraint(SpringLayout.EAST, checkerButton, -610, SpringLayout.EAST, this);
-		appLayout_1.putConstraint(SpringLayout.SOUTH, saveButton, -61, SpringLayout.SOUTH, this);
-		appLayout_1.putConstraint(SpringLayout.WEST, checkerButton, 82, SpringLayout.WEST, this);
-		appLayout_1.putConstraint(SpringLayout.SOUTH, loadButton, -61, SpringLayout.SOUTH, this);
 		appLayout_1.putConstraint(SpringLayout.NORTH, chatField, 30, SpringLayout.SOUTH, chatPane);
 		appLayout_1.putConstraint(SpringLayout.WEST, chatField, 0, SpringLayout.WEST, chatPane);
 		appLayout_1.putConstraint(SpringLayout.EAST, chatField, 0, SpringLayout.EAST, chatPane);
 		appLayout_1.putConstraint(SpringLayout.NORTH, chatPane, 50, SpringLayout.NORTH, this);
 		appLayout_1.putConstraint(SpringLayout.WEST, chatPane, 50, SpringLayout.WEST, this);
 		appLayout_1.putConstraint(SpringLayout.EAST, chatPane, -50, SpringLayout.EAST, this);
+		appLayout_1.putConstraint(SpringLayout.NORTH, buttonPanel, 79, SpringLayout.SOUTH, chatField);
+		appLayout_1.putConstraint(SpringLayout.WEST, buttonPanel, 0, SpringLayout.WEST, chatPane);
+		appLayout_1.putConstraint(SpringLayout.EAST, buttonPanel, 0, SpringLayout.EAST, chatPane);
 	}
 	
 	private void setupListeners()
-	{
-		resetButton.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent click) 
-			{
-				chatArea.setText("");
-			}
-		});
-		
+	{	
 		saveButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click) 
