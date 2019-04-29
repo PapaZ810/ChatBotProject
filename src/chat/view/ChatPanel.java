@@ -47,21 +47,11 @@ public class ChatPanel extends JPanel
 		searchIcon = new ImageIcon(getClass().getResource("/chat/view/images/search.png"));
 		
 		chatButton = new JButton("Chat", chatIcon);
-		chatButton.setBackground(new Color(0, 172, 237));
-		chatButton.setForeground(Color.WHITE);
 		checkerButton = new JButton("Check", checkerIcon);
-		checkerButton.setBackground(new Color(0, 172, 237));
-		checkerButton.setForeground(Color.WHITE);
 		loadButton = new JButton("Load", loadIcon);
-		loadButton.setBackground(new Color(0, 172, 237));
-		loadButton.setForeground(Color.WHITE);
 		saveButton = new JButton("Save", saveIcon);
 		tweetButton = new JButton("Send Tweet", tweetIcon);
-		tweetButton.setBackground(new Color(0, 172, 237));
-		tweetButton.setForeground(Color.WHITE);
 		searchTwitterButton = new JButton("Search Twitter", searchIcon);
-		searchTwitterButton.setBackground(new Color(0, 172, 237));
-		searchTwitterButton.setForeground(Color.WHITE);
 		
 		chatField = new JTextField("Talk to Bot here", 50);
 		chatArea = new JTextArea("Chat Area", 20, 50);
@@ -159,7 +149,7 @@ public class ChatPanel extends JPanel
 		appLayout_1.putConstraint(SpringLayout.WEST, buttonPanel, 0, SpringLayout.WEST, chatPane);
 		appLayout_1.putConstraint(SpringLayout.EAST, buttonPanel, 0, SpringLayout.EAST, chatPane);
 		saveButton.setForeground(Color.WHITE);
-		saveButton.setBackground(new Color(0, 172, 237));
+		saveButton.setBackground(new Color(0, 132, 180));
 		chatField.setForeground(new Color(30, 144, 255));
 		chatField.setBackground(Color.DARK_GRAY);
 		chatArea.setBackground(new Color(64, 64, 64));
@@ -167,6 +157,16 @@ public class ChatPanel extends JPanel
 		chatArea.setBackground(new Color(36, 52, 71));
 		chatField.setBackground(new Color(36, 52, 71));
 		chatField.setForeground(Color.WHITE);
+		searchTwitterButton.setBackground(new Color(0, 132, 180));
+		searchTwitterButton.setForeground(Color.WHITE);
+		chatButton.setBackground(new Color(0, 132, 180));
+		chatButton.setForeground(Color.WHITE);
+		checkerButton.setBackground(new Color(0, 132, 180));
+		checkerButton.setForeground(Color.WHITE);
+		loadButton.setBackground(new Color(0, 132, 180));
+		loadButton.setForeground(Color.WHITE);
+		tweetButton.setBackground(new Color(0, 132, 180));
+		tweetButton.setForeground(Color.WHITE);
 		
 	}
 	
@@ -214,6 +214,14 @@ public class ChatPanel extends JPanel
 			}
 		});
 		
+		tweetButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String textToTweet = chatField.getText().trim();
+				appController.tweet(textToTweet);
+			}
+		});
 		
 	}
 }

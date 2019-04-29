@@ -14,6 +14,7 @@ public class ChatController
 	public ChatController()
 	{
 		simpleBot = new Chatbot();
+		myTwitter = new ChatTwitter(this);
 		appFrame = new ChatFrame(this);
 	}
 

@@ -25,7 +25,7 @@ public class ChatTwitter
 		this.tweetedWords = new ArrayList<String>();
 		this.wordsAndCount = new HashMap<String, Integer>();
 		this.totalWordCount = 0;
-		this.tweetEnd = "@ChatbotCTEC, @CTECNow, CSCheerLeader, @CodyHenrichsen"; 
+		this.tweetEnd = " @ChatbotCTEC, @CTECNow, @CSCheerLeader, @CodyHenrichsen"; 
 	}
 	
 	public void sendTweet(String textToTweet)
@@ -206,7 +206,6 @@ public class ChatTwitter
 		turnStatusesToWords();
 		totalWordCount = tweetedWords.size();
 		String [] boring = createIgnoredWordArray();
-		removeBlanks();
 		trimTheBoringWords(boring);
 		generateWordCount();
 
