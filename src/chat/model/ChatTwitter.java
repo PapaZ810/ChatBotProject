@@ -15,6 +15,8 @@ public class ChatTwitter
 	private long totalWordCount;
 	private HashMap<String, Integer> wordsAndCount;
 	
+	private String tweetEnd;
+	
 	public ChatTwitter(ChatController app)
 	{
 		this.app = app;
@@ -23,13 +25,14 @@ public class ChatTwitter
 		this.tweetedWords = new ArrayList<String>();
 		this.wordsAndCount = new HashMap<String, Integer>();
 		this.totalWordCount = 0;
+		this.tweetEnd = "@ChatbotCTEC, @CTECNow, CSCheerLeader, @CodyHenrichsen"; 
 	}
 	
 	public void sendTweet(String textToTweet)
 	{
 		try
 		{
-			chatTwitter.updateStatus(textToTweet + " @ChatbotCTEC");
+			chatTwitter.updateStatus(textToTweet + tweetEnd);
 		}
 		catch(TwitterException tweetError)
 		{
@@ -102,7 +105,7 @@ public class ChatTwitter
 	private String [] createIgnoredWordArray()
 	{
 		String [] boringWords;
-		String fileText = IOController.loadFromFile(app, "commonWords.txt");
+		String fileText = IOController.loadFile(app, "commonWords.txt");
 		int wordCount = 0;
 		
 		Scanner wordScanner = new Scanner(fileText);

@@ -3,11 +3,13 @@ package chat.controller;
 import chat.view.ChatFrame;
 import javax.swing.JOptionPane;
 import chat.model.Chatbot;
+import chat.model.ChatTwitter;
 
 public class ChatController
 {
 	private ChatFrame appFrame;
 	private Chatbot simpleBot;
+	private ChatTwitter myTwitter;
 	
 	public ChatController()
 	{
@@ -73,9 +75,15 @@ public class ChatController
 	{
 		JOptionPane.showMessageDialog(appFrame, error.getMessage());
 	}
+	
 	public ChatFrame getAppFrame()
 	{
 		return appFrame;
+	}
+	
+	public void tweet(String text)
+	{
+		myTwitter.sendTweet(text);
 	}
 	
 }
