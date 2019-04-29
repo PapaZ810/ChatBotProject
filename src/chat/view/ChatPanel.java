@@ -55,6 +55,7 @@ public class ChatPanel extends JPanel
 		
 		chatField = new JTextField("Talk to Bot here", 50);
 		chatArea = new JTextArea("Chat Area", 20, 50);
+		chatArea.setForeground(new Color(30, 144, 255));
 		
 		chatPane = new JScrollPane();
 		buttonPanel = new JPanel(new GridLayout(1, 0));
@@ -81,9 +82,9 @@ public class ChatPanel extends JPanel
 	{
 		this.setLayout(appLayout_1);
 		this.setPreferredSize(new Dimension(1024, 768));
-		this.setBackground(new Color(0, 191, 255));
+		this.setBackground(Color.DARK_GRAY);
 		buttonPanel.setPreferredSize(new Dimension(900, 150));
-		buttonPanel.setBackground(new Color(0, 191, 255));
+		buttonPanel.setBackground(Color.DARK_GRAY);
 		this.add(buttonPanel);
 		this.add(chatPane);
 		this.add(chatField);
@@ -135,6 +136,12 @@ public class ChatPanel extends JPanel
 		appLayout_1.putConstraint(SpringLayout.NORTH, buttonPanel, 79, SpringLayout.SOUTH, chatField);
 		appLayout_1.putConstraint(SpringLayout.WEST, buttonPanel, 0, SpringLayout.WEST, chatPane);
 		appLayout_1.putConstraint(SpringLayout.EAST, buttonPanel, 0, SpringLayout.EAST, chatPane);
+		saveButton.setForeground(new Color(30, 144, 255));
+		saveButton.setBackground(new Color(30, 144, 255));
+		chatField.setForeground(new Color(30, 144, 255));
+		chatField.setBackground(Color.DARK_GRAY);
+		chatArea.setBackground(Color.DARK_GRAY);
+		
 	}
 	
 	private void setupListeners()
