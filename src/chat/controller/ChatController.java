@@ -67,11 +67,6 @@ public class ChatController
 		}	*/
 	}
 	
-	private void close()
-	{
-		System.exit(0);
-	}
-	
 	public void handleErrors(Exception error)
 	{
 		JOptionPane.showMessageDialog(appFrame, error.getMessage());
@@ -85,6 +80,12 @@ public class ChatController
 	public void tweet(String text)
 	{
 		myTwitter.sendTweet(text);
+	}
+	
+	public String findWords(String user)
+	{
+		String results = myTwitter.getMostCommonWord(user);
+		return results;
 	}
 	
 }
