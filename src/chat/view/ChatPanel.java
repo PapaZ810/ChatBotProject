@@ -223,5 +223,15 @@ public class ChatPanel extends JPanel
 			}
 		});
 		
+		searchTwitterButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent searchCLick)
+			{
+				String username = chatField.getText().trim();
+				String display = appController.findWords(username);
+				chatArea.append("\n\n" + display);
+			}
+		});
+		
 	}
 }
