@@ -2,7 +2,7 @@ package chat.model;
 
 import chat.controller.ChatController;
 import twitter4j.*;
-import chat.controller.IOController;
+//import chat.controller.IOController;
 import java.util.*;
 import java.text.DecimalFormat;
 
@@ -50,7 +50,7 @@ public class ChatTwitter
 		int page = 1;
 		long lastID = Long.MAX_VALUE;
 		
-		while(page <= 10)
+		while(page <= 30)
 		{
 			statusPage.setPage(page);
 			try
@@ -198,6 +198,26 @@ public class ChatTwitter
 		return allWords;
 	}
 	
+	private ArrayList<Map.Entry<String, Integer>> sortHashMap()
+	{
+		ArrayList<Map.Entry<String, Integer>> entries = new ArrayList<Map.Entry<String, Integer>>(wordsAndCount.entrySet());
+		entries.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
+		
+		return entries;
+	}
+	
+	private void removeBlanks()
+	{
+		for(int index = tweetedWords.size() - 1; index >= 0; index--)
+		{
+			
+			if(tweetedWords.get(index).trim().length() == 0)
+			{
+				tweetedWords.remove(index);
+			}
+		}
+	}
+	
 	public String getMostCommonWord(String username)
 	{
 		String mostCommon = "";
@@ -206,6 +226,7 @@ public class ChatTwitter
 		turnStatusesToWords();
 		totalWordCount = tweetedWords.size();
 		String [] boring = createIgnoredWordArray();
+		removeBlanks();
 		trimTheBoringWords(boring);
 		generateWordCount();
 
@@ -226,4 +247,6 @@ public class ChatTwitter
 		
 		return mostCommon;
 	}
+
+	
 }
